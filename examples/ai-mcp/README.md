@@ -1,6 +1,6 @@
 # Spring AI and MCP example
 
-A small, optional example using Java 21, Spring Boot 4.1.1 and Spring AI 2.0.1. It runs independently of the generated templates.
+A small, optional example using Java 21, Spring Boot 4.1.3 and Spring AI 2.0.2. It runs independently of the generated templates.
 
 The default application exposes a REST customer lookup and the same lookup as an MCP tool. Both call `CustomerService`, which contains one synthetic customer: John Doe, ID `1`. No database or model is needed.
 

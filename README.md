@@ -16,7 +16,7 @@ follow the [source migration instructions](#codex-plugin) below.
 
 This repository provides a reusable Spring service starter. The v1.0 API scope covers service generation, local development, container packaging, and Kubernetes deployment.
 
-Both variants have been validated as generated services with PostgreSQL, Docker Compose, and local Kubernetes. See [adoption guidance](docs/adoption/promotion-brief.md) and the [version policy](docs/releases/version-policy.md). The current baseline is Java 21 plus Spring Boot 4.1.1.
+Both variants have been validated as generated services with PostgreSQL, Docker Compose, and local Kubernetes. See [adoption guidance](docs/adoption/promotion-brief.md) and the [version policy](docs/releases/version-policy.md). The current baseline is Java 21 plus Spring Boot 4.1.3.
 
 The default path is `mvc-jpa` with `--purpose api`. `webflux-r2dbc` remains the supported advanced API variant for teams with a real reactive requirement. An experimental MVC/JPA AI purpose adds an order-support workflow for host and local Docker Compose use. Optional integrations under `examples/` remain outside the starter contract.
 

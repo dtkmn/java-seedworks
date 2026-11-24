@@ -15,6 +15,7 @@ The format follows a simple keep-a-changelog style with concise user-visible ent
 - MIT licensing for the starter and copied scaffold, with the license included in newly generated services
 
 ### Changed
+- Upgrade templates and maintained examples to Spring Boot 4.1.3 and remove redundant Jackson, Tomcat, and OpenTelemetry version overrides
 - Rename the project to Java Seedworks (`dtkmn/java-seedworks`) and update active repository, generator and plugin references; retain existing Spring variant and Helm chart identifiers
 - Remove the generator's Perl dependency by using Bash's built-in placeholder replacement
 - Clarify the public starter's purpose and contributor entry point

@@ -6,22 +6,22 @@ This document keeps the starter from drifting into accidental legacy. Dependency
 
 ## Current Baseline
 
-As of September 2, 2026:
+As of November 24, 2026:
 
 | Layer | Default | Status |
 | --- | --- | --- |
 | Java | 21 | Stable starter baseline |
-| Spring Boot | 4.1.1 | Stable starter baseline |
-| Gradle | 9.7.1 | Current wrapper and Docker builder baseline |
+| Spring Boot | 4.1.3 | Stable starter baseline |
+| Gradle | 9.8.2 | Current wrapper and Docker builder baseline |
 | PostgreSQL | 17 | Local and integration-test baseline |
 | Runtime image | Distroless Java 21 on Debian 13 | Digest-pinned, non-root baseline |
 | Java 25 | Future migration tranche | Not the default yet |
 
 References:
 
-- Spring Boot 4.1.1 was released on August 20, 2026: https://spring.io/blog/2026/08/20/spring-boot-4-1-1-available-now/
+- Spring Boot 4.1.3 was released on November 20, 2026: https://spring.io/blog/2026/11/20/spring-boot-4-1-3-available-now/
 - Oracle announced Java 25 on September 16, 2025 with long-term support: https://www.oracle.com/news/announcement/oracle-releases-java-25-2025-09-16
-- Gradle 9.7.1 was released on August 19, 2026: https://docs.gradle.org/9.7.1/release-notes.html
+- Gradle 9.8.2 release notes: https://docs.gradle.org/9.8.2/release-notes.html
 
 ## Baseline Rules
 
@@ -37,7 +37,7 @@ References:
 
 Maintenance targets the latest stable starter release. Older tags are snapshots, with no routine backports or maintained historical branches; exceptions require an explicit maintainer decision. See [Support Policy](../../SUPPORT.md) for scope and downstream ownership.
 
-The stable line is Java 21 and Spring Boot 4.1.1. It remains stable only while:
+The stable line is Java 21 and Spring Boot 4.1.3. It remains stable only while:
 
 - generated `mvc-jpa` and `webflux-r2dbc` services compile and test cleanly
 - Docker images build and run
@@ -55,6 +55,8 @@ The Java 25 migration should be treated as a product decision, not a dependency 
 
 ## Dependency Review Rules
 
+- Remove redundant dependency overrides once Spring Boot supplies the intended version and compatibility has been checked. Managed versions still need advisory review; retain targeted overrides when a required security fix is newer than the platform default.
+- Keep the Testcontainers 1.21.4 BOM until its module coordinates and Java imports migrate together to 2.x. Its Commons Compress constraint and the Kafka examples' LZ4 constraints remain necessary because the upstream dependencies still select older versions.
 - Generated services must keep Dependabot enabled for Gradle, GitHub Actions, and Docker.
 - Generated services must produce a CycloneDX SBOM during CI.
 - Dependency updates that affect the starter contract require generated output validation, not just root repository validation.
